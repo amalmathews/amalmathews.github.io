@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amal Mathew - Computer Vision Engineer</title>
     <style>
+        /* ALL STYLES IN ONE PLACE */
         * {
             margin: 0;
             padding: 0;
@@ -121,7 +122,7 @@
             box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
         }
 
-        /* Floating particles background */
+        /* Particles */
         .particles {
             position: absolute;
             top: 0;
@@ -221,7 +222,7 @@
             border: 1px solid rgba(0, 212, 255, 0.3);
         }
 
-        /* Project Navigation Tabs */
+        /* Project Tabs */
         .project-tabs {
             display: flex;
             justify-content: center;
@@ -252,7 +253,7 @@
             color: #00d4ff;
         }
 
-        /* Projects Section */
+        /* Projects Grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -346,7 +347,7 @@
             opacity: 0.7;
         }
 
-        /* Project Modal */
+        /* Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -453,7 +454,7 @@
             transform: translateY(-2px);
         }
 
-        /* Experience Section */
+        /* Timeline */
         .timeline {
             position: relative;
             margin: 3rem 0;
@@ -511,7 +512,7 @@
             left: -35px;
         }
 
-        /* Publications Section */
+        /* Publications */
         .publications {
             background: #111;
         }
@@ -548,7 +549,7 @@
             margin-bottom: 1rem;
         }
 
-        /* Contact Section */
+        /* Contact */
         .contact-content {
             text-align: center;
             max-width: 600px;
@@ -588,6 +589,10 @@
             text-align: center;
             color: #666;
             border-top: 1px solid #333;
+        }
+
+        .mobile-menu {
+            display: none;
         }
 
         /* Mobile Responsive */
@@ -659,10 +664,6 @@
                 max-width: calc(100% - 2rem);
             }
         }
-
-        .mobile-menu {
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -682,6 +683,7 @@
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="hero" class="hero">
             <div class="particles"></div>
             <div class="container">
@@ -697,6 +699,7 @@
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="about">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
@@ -740,6 +743,7 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects" class="projects">
             <div class="container">
                 <h2 class="section-title">Projects</h2>
@@ -750,314 +754,33 @@
                     <button class="project-tab" onclick="switchTab('research')">Research Projects</button>
                 </div>
 
-                <div id="company-projects" class="project-category projects-grid active">
-                    <div class="project-card" onclick="openProjectModal('dental-reconstruction')">
-                        <div class="project-header">
-                            <h3 class="project-title">3D Dental Reconstruction Pipeline</h3>
-                            <p class="project-company">LightForce Orthodontics</p>
-                            <span class="project-status">Production</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Developed and deployed a 3D dental reconstruction pipeline using DeepSDF and Conv-OccNet, achieving 98.07% IoU and reducing Chamfer distance by 89%.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">DeepSDF</span>
-                                <span class="tech-tag">Conv-OccNet</span>
-                                <span class="tech-tag">PointNet</span>
-                                <span class="tech-tag">AWS SageMaker</span>
-                                <span class="tech-tag">Terraform</span>
-                            </div>
-                        </div>
-                        <div class="expand-indicator">Click to expand →</div>
-                    </div>
-
-                    <div class="project-card" onclick="openProjectModal('gaussian-splatting')">
-                        <div class="project-header">
-                            <h3 class="project-title">360° Video to 3D Reconstruction</h3>
-                            <p class="project-company">Inhabitr Inc</p>
-                            <span class="project-status">Production</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Built a scalable pipeline to process 360° videos into Gaussian splats, generate meshes using Marching Cubes, and extract 2D floor plans for Flutter app integration.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Gaussian Splatting</span>
-                                <span class="tech-tag">Marching Cubes</span>
-                                <span class="tech-tag">Flutter</span>
-                                <span class="tech-tag">3D Visualization</span>
-                                <span class="tech-tag">Computer Vision</span>
-                            </div>
-                        </div>
-                        <div class="expand-indicator">Click to expand →</div>
-                    </div>
-
-                    <div class="project-card" onclick="openProjectModal('floor-plan-analysis')">
-                        <div class="project-header">
-                            <h3 class="project-title">Floor Plan Analysis System</h3>
-                            <p class="project-company">Assembli Inc</p>
-                            <span class="project-status">Current</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Architected end-to-end floor-plan analysis pipelines using Detectron2, MM Rotate, and Mask2Former to detect and segment layout components.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Detectron2</span>
-                                <span class="tech-tag">Swin Transformers</span>
-                                <span class="tech-tag">FastAPI</span>
-                                <span class="tech-tag">GPT-4o Vision</span>
-                                <span class="tech-tag">AWS Lambda</span>
-                            </div>
-                        </div>
-                        <div class="expand-indicator">Click to expand →</div>
-                    </div>
-
-                    <div class="project-card" onclick="openProjectModal('reverse-image-search')">
-                        <div class="project-header">
-                            <h3 class="project-title">Reverse Image Search System</h3>
-                            <p class="project-company">Inhabitr Inc</p>
-                            <span class="project-status">Production</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Developed a scalable reverse image search system using Siamese neural networks, CLIP embeddings, and FAISS vector search.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Siamese Networks</span>
-                                <span class="tech-tag">CLIP</span>
-                                <span class="tech-tag">FAISS</span>
-                                <span class="tech-tag">AWS Lambda</span>
-                                <span class="tech-tag">ECS</span>
-                            </div>
-                        </div>
-                        <div class="expand-indicator">Click to expand →</div>
-                    </div>
-                </div>
-
-                <div id="personal-projects" class="project-category projects-grid">
-                    <div class="project-card" onclick="openProjectModal('realtime-object-tracking')">
-                        <div class="project-header">
-                            <h3 class="project-title">Real-time Multi-Object Tracking</h3>
-                            <p class="project-company">Personal Project</p>
-                            <span class="project-status">Open Source</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Built a real-time multi-object tracking system using YOLOv8 and DeepSORT with custom kalman filters for improved tracking accuracy.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">YOLOv8</span>
-                                <span class="tech-tag">DeepSORT</span>
-                                <span class="tech-tag">OpenCV</span>
-                                <span class="tech-tag">PyTorch</span>
-                                <span class="tech-tag">Real-time Processing</span>
-                            </div>
-                        </div>
-                        <div class="expand-indicator">Click to expand →</div>
-                    </div>
-
-                    <div class="project-card" onclick="openProjectModal('3d-pose-estimation')">
-                        <div class="project-header">
-                            <h3 class="project-title">3D Human Pose Estimation</h3>
-                            <p class="project-company">Personal Project</p>
-                            <span class="project-status">In Development</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Developing a 3D human pose estimation system from monocular RGB input using temporal convolutions and graph neural networks.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Graph Neural Networks</span>
-                                <span class="tech-tag">Temporal Convolutions</span>
-                                <span class="tech-tag">3D Pose</span>
-                                <span class="tech-tag">PyTorch</span>
-                                <span class="tech-tag">MediaPipe</span>
-                            </div>
-                        </div>
-                        <div class="expand-indicator">Click to expand →</div>
-                    </div>
-
-                    <div class="project-card" onclick="openProjectModal('neural-radiance-fields')">
-                        <div class="project-header">
-                            <h3 class="project-title">Neural Radiance Fields Implementation</h3>
-                            <p class="project-company">Personal Project</p>
-                            <span class="project-status">Complete</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Custom implementation of NeRF for novel view synthesis with optimizations for faster training and better quality rendering.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">NeRF</span>
-                                <span class="tech-tag">Volume Rendering</span>
-                                <span class="tech-tag">PyTorch</span>
-                                <span class="tech-tag">CUDA</span>
-                                <span class="tech-tag">3D Graphics</span>
-                            </div>
-                        </div>
-                        <div class="expand-indicator">Click to expand →</div>
-                    </div>
-
-                    <div class="project-card" onclick="openProjectModal('edge-ai-deployment')">
-                        <div class="project-header">
-                            <h3 class="project-title">Edge AI Deployment Framework</h3>
-                            <p class="project-company">Personal Project</p>
-                            <span class="project-status">Open Source</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Built a lightweight framework for deploying computer vision models on edge devices with automatic model optimization and quantization.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">TensorRT</span>
-                                <span class="tech-tag">ONNX</span>
-                                <span class="tech-tag">Model Quantization</span>
-                                <span class="tech-tag">Edge Computing</span>
-                                <span class="tech-tag">Docker</span>
-                            </div>
-                        </div>
-                        <div class="expand-indicator">Click to expand →</div>
-                    </div>
-                </div>
-
-                <div id="research-projects" class="project-category projects-grid">
-                    <div class="project-card" onclick="openProjectModal('cribnet')">
-                        <div class="project-header">
-                            <h3 class="project-title">CribNet: Infant Safety Detection</h3>
-                            <p class="project-company">Research Publication</p>
-                            <span class="project-status">Published</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Vision-based hazard detection system for infant safety in cribs. Published in IEEE FG 2024 conference.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Computer Vision</span>
-                                <span class="tech-tag">Deep Learning</span>
-                                <span class="tech-tag">Safety Systems</span>
-                                <span class="tech-tag">Research</span>
-                                <span class="tech-tag">IEEE FG 2024</span>
-                            </div>
-                        </div>
-                        <div class="expand-indicator">Click to expand →</div>
-                    </div>
-
-                    <div class="project-card" onclick="openProjectModal('infant-sleep-classification')">
-                        <div class="project-header">
-                            <h3 class="project-title">Infant Sleep-Wake State Classification</h3>
-                            <p class="project-company">Research Publication</p>
-                            <span class="project-status">Published</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Classification system for infant sleep-wake states from natural overnight in-crib sleep videos. Published in WACV 2025.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Video Analysis</span>
-                                <span class="tech-tag">Temporal Modeling</span>
-                                <span class="tech-tag">Medical AI</span>
-                                <span class="tech-tag">WACV 2025</span>
-                                <span class="tech-tag">Sleep Analysis</span>
-                            </div>
-                        </div>
-                        <div class="expand-indicator">Click to expand →</div>
-                    </div>
-
-                    <div class="project-card" onclick="openProjectModal('lip-sync-generation')">
-                        <div class="project-header">
-                            <h3 class="project-title">Audio-Video Lip Sync Generation</h3>
-                            <p class="project-company">Research Publication</p>
-                            <span class="project-status">Published</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Generative deep neural networks for audio-video lip synchronization. Published in Springer Journal.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">GANs</span>
-                                <span class="tech-tag">Audio-Visual</span>
-                                <span class="tech-tag">Lip Sync</span>
-                                <span class="tech-tag">Generative Models</span>
-                                <span class="tech-tag">Springer</span>
-                            </div>
-                        </div>
-                        <div class="expand-indicator">Click to expand →</div>
-                    </div>
+                <div id="projects-container">
+                    <!-- Projects will be loaded here -->
                 </div>
             </div>
         </section>
 
+        <!-- Publications Section -->
         <section id="publications" class="publications">
             <div class="container">
                 <h2 class="section-title">Publications</h2>
-                
-                <div class="publication-item">
-                    <h3 class="publication-title">Classification of Infant Sleep–Wake States from Natural Overnight In-Crib Sleep Videos</h3>
-                    <p class="publication-venue">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2025)</p>
-                    <p class="publication-description">
-                        Developed novel computer vision techniques to automatically classify infant sleep-wake states from overnight crib videos, contributing to pediatric sleep research and monitoring systems.
-                    </p>
-                </div>
-
-                <div class="publication-item">
-                    <h3 class="publication-title">Infant Action Generative Modeling</h3>
-                    <p class="publication-venue">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2024)</p>
-                    <p class="publication-description">
-                        Presented generative modeling approaches for understanding and predicting infant actions, advancing the field of pediatric behavioral analysis through computer vision.
-                    </p>
-                </div>
-
-                <div class="publication-item">
-                    <h3 class="publication-title">CribNet: Enhancing Infant Safety in Cribs through Vision-based Hazard Detection</h3>
-                    <p class="publication-venue">The 18th IEEE International Conference on Automatic Face and Gesture Recognition (FG 2024)</p>
-                    <p class="publication-description">
-                        Introduced CribNet, a computer vision system for real-time hazard detection in infant cribs, combining deep learning with safety monitoring applications.
-                    </p>
-                </div>
-
-                <div class="publication-item">
-                    <h3 class="publication-title">Audio–Video syncing with lip movements using Generative Deep Neural Networks</h3>
-                    <p class="publication-venue">Springer Journal: Multimedia Tools & Applications (2023)</p>
-                    <p class="publication-description">
-                        Developed generative neural network architectures for synchronizing audio and video content based on lip movement analysis, advancing multimedia processing techniques.
-                    </p>
+                <div id="publications-container">
+                    <!-- Publications will be loaded here -->
                 </div>
             </div>
         </section>
 
+        <!-- Experience Section -->
         <section id="experience" class="experience">
             <div class="container">
                 <h2 class="section-title">Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>Computer Vision Engineer</h3>
-                        <p style="color: #00d4ff; margin-bottom: 1rem;">Assembli Inc | May 2025 - Present</p>
-                        <p>Architected end-to-end floor-plan analysis pipelines and deployed computer-vision services in production with real-time inference capabilities. Built scalable annotation workflows and optimized ML pipelines for large-scale blueprint processing.</p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h3>Machine Learning Engineer</h3>
-                        <p style="color: #00d4ff; margin-bottom: 1rem;">Inhabitr Inc | Sep 2024 - May 2025</p>
-                        <p>Designed 3D reconstruction pipelines and built scalable ML infrastructure for processing 360° videos and reverse image search systems. Integrated advanced computer vision solutions into Flutter applications.</p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h3>3D Computer Vision Engineer</h3>
-                        <p style="color: #00d4ff; margin-bottom: 1rem;">LightForce Orthodontics | Jun 2023 - Dec 2023</p>
-                        <p>Developed 3D dental reconstruction pipeline achieving 98.07% IoU and enhanced PointNet architecture for improved tooth structure reconstruction. Automated AWS infrastructure deployment with Terraform.</p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h3>Lead ML Engineer</h3>
-                        <p style="color: #00d4ff; margin-bottom: 1rem;">Omdena Inc | Dec 2020 - Sep 2022</p>
-                        <p>Led 10+ global ML projects focusing on computer vision, 3D reconstruction, and NLP. Directed teams in building edge AI solutions and mentored 700+ data scientists in the India chapter.</p>
-                    </div>
+                <div class="timeline" id="experience-container">
+                    <!-- Experience will be loaded here -->
                 </div>
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="contact">
             <div class="container">
                 <h2 class="section-title">Let's Connect</h2>
@@ -1070,11 +793,11 @@
                             <span>📧</span>
                             Email
                         </a>
-                        <a href="https://linkedin.com/in/amal-mathew" class="contact-link" target="_blank">
+                        <a href="https://www.linkedin.com/in/amal-mathew-71599b195/" class="contact-link" target="_blank">
                             <span>💼</span>
                             LinkedIn
                         </a>
-                        <a href="https://scholar.google.com" class="contact-link" target="_blank">
+                        <a href="https://scholar.google.com/citations?user=pBptdqcAAAAJ&hl=en" class="contact-link" target="_blank">
                             <span>📚</span>
                             Google Scholar
                         </a>
@@ -1104,306 +827,251 @@
     </footer>
 
     <script>
-        // Project data with detailed information
-        const projectData = {
-            'dental-reconstruction': {
-                title: '3D Dental Reconstruction Pipeline',
-                company: 'LightForce Orthodontics',
-                status: 'Production',
-                overview: 'Developed and deployed a comprehensive 3D dental reconstruction pipeline that transforms partial CT scan data into complete 3D dental models for orthodontic treatment planning.',
-                challenges: [
-                    'Handling incomplete and noisy CT scan data',
-                    'Achieving high precision required for medical applications',
-                    'Optimizing inference speed for production use',
-                    'Integrating with existing orthodontic workflows'
-                ],
-                solutions: [
-                    'Implemented DeepSDF for implicit surface representation',
-                    'Enhanced Conv-OccNet for better geometric understanding',
-                    'Modified PointNet to incorporate normal vector information',
-                    'Deployed on AWS SageMaker with auto-scaling capabilities'
-                ],
-                achievements: [
-                    '98.07% IoU accuracy on test dataset',
-                    '89% reduction in Chamfer distance compared to baseline',
-                    'Successfully deployed in production serving 1000+ cases/month',
-                    'Reduced manual processing time by 75%'
-                ],
-                techStack: ['DeepSDF', 'Conv-OccNet', 'PointNet', 'AWS SageMaker', 'Terraform', 'Docker', 'Python', 'PyTorch'],
-                github: null,
-                demo: null
-            },
-            'gaussian-splatting': {
-                title: '360° Video to 3D Reconstruction',
-                company: 'Inhabitr Inc',
-                status: 'Production',
-                overview: 'Built a complete pipeline that processes 360° equirectangular videos into high-quality 3D reconstructions using Gaussian splatting, then generates meshes and floor plans for real estate applications.',
-                challenges: [
-                    'Processing high-resolution 360° video data efficiently',
-                    'Maintaining quality during mesh generation',
-                    'Extracting accurate floor plans from 3D models',
-                    'Integrating with mobile Flutter application'
-                ],
-                solutions: [
-                    'Optimized Gaussian splatting algorithm for 360° input',
-                    'Implemented efficient Marching Cubes algorithm',
-                    'Developed custom floor plan extraction algorithms',
-                    'Created robust API for Flutter integration'
-                ],
-                achievements: [
-                    'Reduced processing time by 60% compared to traditional methods',
-                    'Achieved 95% accuracy in floor plan extraction',
-                    'Successfully integrated into production Flutter app',
-                    'Processed over 10,000 property reconstructions'
-                ],
-                techStack: ['Gaussian Splatting', 'Marching Cubes', 'Flutter', 'Python', 'C++', 'OpenCV', 'Point Cloud Library'],
-                github: null,
-                demo: null
-            },
-            'floor-plan-analysis': {
-                title: 'Floor Plan Analysis System',
-                company: 'Assembli Inc',
-                status: 'Current',
-                overview: 'Architected an end-to-end system for analyzing architectural floor plans, detecting and segmenting various components like walls, doors, windows, and symbols with high precision.',
-                challenges: [
-                    'Handling diverse floor plan formats and scales',
-                    'Accurate detection of small architectural symbols',
-                    'Processing large-scale blueprint datasets',
-                    'Real-time inference requirements'
-                ],
-                solutions: [
-                    'Used Detectron2 with MM Rotate for rotated object detection',
-                    'Implemented Mask2Former with Swin transformer backbone',
-                    'Integrated GPT-4o Vision for semantic understanding',
-                    'Deployed on AWS Lambda for scalable inference'
-                ],
-                achievements: [
-                    'Achieved 92% mAP on architectural symbol detection',
-                    'Processed 50,000+ floor plans in production',
-                    'Reduced manual annotation time by 80%',
-                    'Built automated QA dashboard for rapid review'
-                ],
-                techStack: ['Detectron2', 'MM Rotate', 'Mask2Former', 'Swin Transformers', 'GPT-4o Vision', 'FastAPI', 'AWS Lambda', 'Docker'],
-                github: null,
-                demo: null
-            },
-            'reverse-image-search': {
-                title: 'Reverse Image Search System',
-                company: 'Inhabitr Inc',
-                status: 'Production',
-                overview: 'Developed a scalable reverse image search system for real estate applications, allowing users to find similar properties based on visual features using advanced embedding techniques.',
-                challenges: [
-                    'Creating robust visual embeddings for diverse images',
-                    'Scaling to millions of property images',
-                    'Achieving sub-second query response times',
-                    'Handling different image qualities and formats'
-                ],
-                solutions: [
-                    'Implemented Siamese neural networks for similarity learning',
-                    'Used CLIP embeddings for semantic understanding',
-                    'Deployed FAISS for efficient vector similarity search',
-                    'Containerized with Docker for easy scaling'
-                ],
-                achievements: [
-                    'Indexed 2M+ property images',
-                    'Achieved <200ms average query response time',
-                    'Reached 89% user satisfaction on search relevance',
-                    'Handles 10,000+ queries per day'
-                ],
-                techStack: ['Siamese Networks', 'CLIP', 'FAISS', 'AWS Lambda', 'ECS', 'Docker', 'Python', 'PyTorch'],
-                github: null,
-                demo: null
-            },
-            'realtime-object-tracking': {
-                title: 'Real-time Multi-Object Tracking',
-                company: 'Personal Project',
-                status: 'Open Source',
-                overview: 'Built a comprehensive real-time multi-object tracking system that combines state-of-the-art detection with advanced tracking algorithms for various applications.',
-                challenges: [
-                    'Maintaining tracking accuracy with occlusions',
-                    'Handling objects entering and leaving the frame',
-                    'Optimizing for real-time performance',
-                    'Managing identity switches during tracking'
-                ],
-                solutions: [
-                    'Integrated YOLOv8 for robust object detection',
-                    'Enhanced DeepSORT with custom Kalman filters',
-                    'Implemented ID reassignment algorithms',
-                    'Optimized inference pipeline for 30+ FPS'
-                ],
-                achievements: [
-                    'Achieved 91% MOTA (Multi-Object Tracking Accuracy)',
-                    'Maintains 35 FPS on standard GPU hardware',
-                    'Successfully tracks 20+ objects simultaneously',
-                    'Open-sourced with 500+ GitHub stars'
-                ],
-                techStack: ['YOLOv8', 'DeepSORT', 'OpenCV', 'PyTorch', 'NumPy', 'Real-time Processing'],
-                github: 'https://github.com/amalmathew/multi-object-tracker',
-                demo: 'https://demo-link.com'
-            },
-            '3d-pose-estimation': {
-                title: '3D Human Pose Estimation',
-                company: 'Personal Project',
-                status: 'In Development',
-                overview: 'Developing an advanced 3D human pose estimation system that works with single RGB cameras, using temporal information and graph neural networks for improved accuracy.',
-                challenges: [
-                    'Lifting 2D poses to accurate 3D coordinates',
-                    'Handling temporal consistency across frames',
-                    'Working with monocular input limitations',
-                    'Generalizing across different camera angles'
-                ],
-                solutions: [
-                    'Using Graph Neural Networks for pose relationships',
-                    'Implementing temporal convolutions for motion modeling',
-                    'Leveraging MediaPipe for initial 2D pose detection',
-                    'Training on diverse pose datasets'
-                ],
-                achievements: [
-                    'Reduced 3D pose error by 15% over baseline methods',
-                    'Achieved smooth temporal consistency',
-                    'Works with various camera setups',
-                    'Currently testing on sports analysis applications'
-                ],
-                techStack: ['Graph Neural Networks', 'Temporal Convolutions', 'MediaPipe', 'PyTorch', '3D Pose', 'Computer Vision'],
-                github: 'https://github.com/amalmathew/3d-pose-estimation',
-                demo: null
-            },
-            'neural-radiance-fields': {
-                title: 'Neural Radiance Fields Implementation',
-                company: 'Personal Project',
-                status: 'Complete',
-                overview: 'Custom implementation of Neural Radiance Fields (NeRF) with optimizations for faster training and improved rendering quality, exploring novel view synthesis applications.',
-                challenges: [
-                    'Long training times for convergence',
-                    'Memory limitations with high-resolution scenes',
-                    'Achieving photorealistic rendering quality',
-                    'Handling complex lighting conditions'
-                ],
-                solutions: [
-                    'Implemented efficient sampling strategies',
-                    'Used CUDA optimizations for faster rendering',
-                    'Added hierarchical volume sampling',
-                    'Integrated advanced positional encoding'
-                ],
-                achievements: [
-                    'Reduced training time by 40% compared to original NeRF',
-                    'Achieved PSNR of 32+ on standard datasets',
-                    'Successfully rendered complex indoor scenes',
-                    'Documented comprehensive implementation guide'
-                ],
-                techStack: ['NeRF', 'Volume Rendering', 'PyTorch', 'CUDA', '3D Graphics', 'Neural Networks'],
-                github: 'https://github.com/amalmathew/nerf-implementation',
-                demo: 'https://nerf-demo.com'
-            },
-            'edge-ai-deployment': {
-                title: 'Edge AI Deployment Framework',
-                company: 'Personal Project',
-                status: 'Open Source',
-                overview: 'Created a comprehensive framework for deploying computer vision models on edge devices with automatic optimization, quantization, and containerization capabilities.',
-                challenges: [
-                    'Model size constraints on edge devices',
-                    'Maintaining accuracy after quantization',
-                    'Supporting diverse edge hardware',
-                    'Simplifying deployment workflows'
-                ],
-                solutions: [
-                    'Integrated TensorRT for NVIDIA hardware optimization',
-                    'Implemented ONNX for cross-platform compatibility',
-                    'Added automatic quantization pipelines',
-                    'Created Docker containers for easy deployment'
-                ],
-                achievements: [
-                    'Reduced model size by 75% with <5% accuracy loss',
-                    'Achieved 3x inference speedup on edge devices',
-                    'Supports 15+ different edge platforms',
-                    'Downloaded 1000+ times from package repository'
-                ],
-                techStack: ['TensorRT', 'ONNX', 'Model Quantization', 'Edge Computing', 'Docker', 'Python', 'C++'],
-                github: 'https://github.com/amalmathew/edge-ai-framework',
-                demo: null
-            },
-            'cribnet': {
-                title: 'CribNet: Infant Safety Detection',
-                company: 'Research Publication',
-                status: 'Published',
-                overview: 'Developed CribNet, a computer vision system for real-time hazard detection in infant cribs, combining deep learning with safety monitoring for pediatric care applications.',
-                challenges: [
-                    'Limited infant safety datasets available',
-                    'Ensuring high precision for safety applications',
-                    'Real-time processing requirements',
-                    'Handling various lighting and camera conditions'
-                ],
-                solutions: [
-                    'Created comprehensive infant safety dataset',
-                    'Implemented multi-stage detection pipeline',
-                    'Used transfer learning from general object detection',
-                    'Deployed edge-compatible lightweight models'
-                ],
-                achievements: [
-                    'Published in IEEE FG 2024 conference',
-                    'Achieved 94% precision on hazard detection',
-                    'Processed in real-time (<100ms per frame)',
-                    'Contributed to pediatric safety research'
-                ],
-                techStack: ['Computer Vision', 'Deep Learning', 'Safety Systems', 'Research', 'PyTorch', 'OpenCV'],
-                github: null,
-                demo: null
-            },
-            'infant-sleep-classification': {
-                title: 'Infant Sleep-Wake State Classification',
-                company: 'Research Publication',
-                status: 'Published',
-                overview: 'Developed automated classification system for infant sleep-wake states from overnight crib videos, contributing to pediatric sleep research and monitoring.',
-                challenges: [
-                    'Subtle visual differences in sleep states',
-                    'Long video sequences requiring temporal modeling',
-                    'Privacy concerns with infant monitoring',
-                    'Annotation complexity for sleep states'
-                ],
-                solutions: [
-                    'Used 3D CNNs for temporal feature extraction',
-                    'Implemented attention mechanisms for key moment detection',
-                    'Created privacy-preserving analysis methods',
-                    'Collaborated with sleep specialists for annotations'
-                ],
-                achievements: [
-                    'Published in WACV 2025 conference',
-                    'Achieved 87% accuracy on sleep state classification',
-                    'Analyzed 500+ hours of infant sleep videos',
-                    'Contributed to pediatric sleep disorder research'
-                ],
-                techStack: ['Video Analysis', 'Temporal Modeling', 'Medical AI', '3D CNNs', 'Attention Mechanisms'],
-                github: null,
-                demo: null
-            },
-            'lip-sync-generation': {
-                title: 'Audio-Video Lip Sync Generation',
-                company: 'Research Publication',
-                status: 'Published',
-                overview: 'Developed generative neural network architectures for synchronizing audio and video content based on lip movement analysis, advancing multimedia processing techniques.',
-                challenges: [
-                    'Precise lip movement synchronization',
-                    'Maintaining visual quality during generation',
-                    'Handling different speakers and languages',
-                    'Real-time processing requirements'
-                ],
-                solutions: [
-                    'Implemented conditional GANs for lip generation',
-                    'Used attention mechanisms for audio-visual alignment',
-                    'Created multi-speaker training framework',
-                    'Optimized inference pipeline for speed'
-                ],
-                achievements: [
-                    'Published in Springer Multimedia Tools & Applications',
-                    'Achieved 92% lip-sync accuracy rating',
-                    'Demonstrated on multiple languages',
-                    'Contributed to multimedia synthesis research'
-                ],
-                techStack: ['GANs', 'Audio-Visual', 'Lip Sync', 'Generative Models', 'Deep Learning'],
-                github: null,
-                demo: null
-            }
+        // ========================================
+        // 🎯 PROJECT DATA - EASY TO UPDATE!
+        // ========================================
+        
+        const PROJECTS = {
+            company: [
+                {
+                    id: 'dental-reconstruction',
+                    title: '3D Dental Reconstruction Pipeline',
+                    company: 'LightForce Orthodontics',
+                    status: 'Production',
+                    description: 'Developed and deployed a comprehensive 3D dental reconstruction pipeline that transforms partial CT scan data into complete 3D dental models for orthodontic treatment planning.',
+                    technologies: ['DeepSDF', 'Conv-OccNet', 'PointNet', 'AWS SageMaker', 'Terraform'],
+                    challenges: [
+                        'Handling incomplete and noisy CT scan data',
+                        'Achieving high precision required for medical applications',
+                        'Optimizing inference speed for production use',
+                        'Integrating with existing orthodontic workflows'
+                    ],
+                    solutions: [
+                        'Implemented DeepSDF for implicit surface representation',
+                        'Enhanced Conv-OccNet for better geometric understanding',
+                        'Modified PointNet to incorporate normal vector information',
+                        'Deployed on AWS SageMaker with auto-scaling capabilities'
+                    ],
+                    achievements: [
+                        '98.07% IoU accuracy on test dataset',
+                        '89% reduction in Chamfer distance compared to baseline',
+                        'Successfully deployed in production serving 1000+ cases/month',
+                        'Reduced manual processing time by 75%'
+                    ],
+                    github: null,
+                    demo: null
+                },
+                {
+                    id: 'gaussian-splatting',
+                    title: '360° Video to 3D Reconstruction',
+                    company: 'Inhabitr Inc',
+                    status: 'Production',
+                    description: 'Built a complete pipeline that processes 360° equirectangular videos into high-quality 3D reconstructions using Gaussian splatting, then generates meshes and floor plans for real estate applications.',
+                    technologies: ['Gaussian Splatting', 'Marching Cubes', 'Flutter', 'Python', 'C++', 'OpenCV'],
+                    challenges: [
+                        'Processing high-resolution 360° video data efficiently',
+                        'Maintaining quality during mesh generation',
+                        'Extracting accurate floor plans from 3D models',
+                        'Integrating with mobile Flutter application'
+                    ],
+                    solutions: [
+                        'Optimized Gaussian splatting algorithm for 360° input',
+                        'Implemented efficient Marching Cubes algorithm',
+                        'Developed custom floor plan extraction algorithms',
+                        'Created robust API for Flutter integration'
+                    ],
+                    achievements: [
+                        'Reduced processing time by 60% compared to traditional methods',
+                        'Achieved 95% accuracy in floor plan extraction',
+                        'Successfully integrated into production Flutter app',
+                        'Processed over 10,000 property reconstructions'
+                    ],
+                    github: null,
+                    demo: null
+                },
+                {
+                    id: 'floor-plan-analysis',
+                    title: 'Floor Plan Analysis System',
+                    company: 'Assembli Inc',
+                    status: 'Current',
+                    description: 'Architected an end-to-end system for analyzing architectural floor plans, detecting and segmenting various components like walls, doors, windows, and symbols with high precision.',
+                    technologies: ['Detectron2', 'MM Rotate', 'Mask2Former', 'Swin Transformers', 'GPT-4o Vision', 'FastAPI', 'AWS Lambda'],
+                    challenges: [
+                        'Handling diverse floor plan formats and scales',
+                        'Accurate detection of small architectural symbols',
+                        'Processing large-scale blueprint datasets',
+                        'Real-time inference requirements'
+                    ],
+                    solutions: [
+                        'Used Detectron2 with MM Rotate for rotated object detection',
+                        'Implemented Mask2Former with Swin transformer backbone',
+                        'Integrated GPT-4o Vision for semantic understanding',
+                        'Deployed on AWS Lambda for scalable inference'
+                    ],
+                    achievements: [
+                        'Achieved 92% mAP on architectural symbol detection',
+                        'Processed 50,000+ floor plans in production',
+                        'Reduced manual annotation time by 80%',
+                        'Built automated QA dashboard for rapid review'
+                    ],
+                    github: null,
+                    demo: null
+                }
+            ],
+            personal: [
+                {
+                    id: 'realtime-object-tracking',
+                    title: 'Real-time Multi-Object Tracking',
+                    company: 'Personal Project',
+                    status: 'Open Source',
+                    description: 'Built a comprehensive real-time multi-object tracking system that combines state-of-the-art detection with advanced tracking algorithms for various applications.',
+                    technologies: ['YOLOv8', 'DeepSORT', 'OpenCV', 'PyTorch', 'NumPy', 'Real-time Processing'],
+                    challenges: [
+                        'Maintaining tracking accuracy with occlusions',
+                        'Handling objects entering and leaving the frame',
+                        'Optimizing for real-time performance',
+                        'Managing identity switches during tracking'
+                    ],
+                    solutions: [
+                        'Integrated YOLOv8 for robust object detection',
+                        'Enhanced DeepSORT with custom Kalman filters',
+                        'Implemented ID reassignment algorithms',
+                        'Optimized inference pipeline for 30+ FPS'
+                    ],
+                    achievements: [
+                        'Achieved 91% MOTA (Multi-Object Tracking Accuracy)',
+                        'Maintains 35 FPS on standard GPU hardware',
+                        'Successfully tracks 20+ objects simultaneously',
+                        'Open-sourced with 500+ GitHub stars'
+                    ],
+                    github: 'https://github.com/amalmathew/multi-object-tracker',
+                    demo: 'https://tracking-demo.amalmathew.dev'
+                },
+                {
+                    id: '3d-pose-estimation',
+                    title: '3D Human Pose Estimation',
+                    company: 'Personal Project',
+                    status: 'In Development',
+                    description: 'Developing an advanced 3D human pose estimation system that works with single RGB cameras, using temporal information and graph neural networks for improved accuracy.',
+                    technologies: ['Graph Neural Networks', 'Temporal Convolutions', 'MediaPipe', 'PyTorch', '3D Pose', 'Computer Vision'],
+                    challenges: [
+                        'Lifting 2D poses to accurate 3D coordinates',
+                        'Handling temporal consistency across frames',
+                        'Working with monocular input limitations',
+                        'Generalizing across different camera angles'
+                    ],
+                    solutions: [
+                        'Using Graph Neural Networks for pose relationships',
+                        'Implementing temporal convolutions for motion modeling',
+                        'Leveraging MediaPipe for initial 2D pose detection',
+                        'Training on diverse pose datasets'
+                    ],
+                    achievements: [
+                        'Reduced 3D pose error by 15% over baseline methods',
+                        'Achieved smooth temporal consistency',
+                        'Works with various camera setups',
+                        'Currently testing on sports analysis applications'
+                    ],
+                    github: 'https://github.com/amalmathew/3d-pose-estimation',
+                    demo: null
+                }
+            ],
+            research: [
+                {
+                    id: 'cribnet',
+                    title: 'CribNet: Infant Safety Detection',
+                    company: 'Research Publication',
+                    status: 'Published',
+                    description: 'Developed CribNet, a computer vision system for real-time hazard detection in infant cribs, combining deep learning with safety monitoring for pediatric care applications.',
+                    technologies: ['Computer Vision', 'Deep Learning', 'Safety Systems', 'Research', 'PyTorch', 'OpenCV'],
+                    challenges: [
+                        'Limited infant safety datasets available',
+                        'Ensuring high precision for safety applications',
+                        'Real-time processing requirements',
+                        'Handling various lighting and camera conditions'
+                    ],
+                    solutions: [
+                        'Created comprehensive infant safety dataset',
+                        'Implemented multi-stage detection pipeline',
+                        'Used transfer learning from general object detection',
+                        'Deployed edge-compatible lightweight models'
+                    ],
+                    achievements: [
+                        'Published in IEEE FG 2024 conference',
+                        'Achieved 94% precision on hazard detection',
+                        'Processed in real-time (<100ms per frame)',
+                        'Contributed to pediatric safety research'
+                    ],
+                    github: null,
+                    demo: null
+                }
+            ]
         };
+
+        // ========================================
+        // 🎯 EXPERIENCE DATA - EASY TO UPDATE!
+        // ========================================
+        
+        const EXPERIENCE = [
+            {
+                title: 'Computer Vision Engineer',
+                company: 'Assembli Inc',
+                period: 'May 2025 - Present',
+                description: 'Architected end-to-end floor-plan analysis pipelines and deployed computer-vision services in production with real-time inference capabilities. Built scalable annotation workflows and optimized ML pipelines for large-scale blueprint processing.'
+            },
+            {
+                title: 'Machine Learning Engineer',
+                company: 'Inhabitr Inc',
+                period: 'Sep 2024 - May 2025',
+                description: 'Designed 3D reconstruction pipelines and built scalable ML infrastructure for processing 360° videos and reverse image search systems. Integrated advanced computer vision solutions into Flutter applications.'
+            },
+            {
+                title: '3D Computer Vision Engineer',
+                company: 'LightForce Orthodontics',
+                period: 'Jun 2023 - Dec 2023',
+                description: 'Developed 3D dental reconstruction pipeline achieving 98.07% IoU and enhanced PointNet architecture for improved tooth structure reconstruction. Automated AWS infrastructure deployment with Terraform.'
+            },
+            {
+                title: 'Lead ML Engineer',
+                company: 'Omdena Inc',
+                period: 'Dec 2020 - Sep 2022',
+                description: 'Led 10+ global ML projects focusing on computer vision, 3D reconstruction, and NLP. Directed teams in building edge AI solutions and mentored 700+ data scientists in the India chapter.'
+            }
+        ];
+
+        // ========================================
+        // 🎯 PUBLICATIONS DATA - EASY TO UPDATE!
+        // ========================================
+        
+        const PUBLICATIONS = [
+            {
+                title: 'Classification of Infant Sleep–Wake States from Natural Overnight In-Crib Sleep Videos',
+                venue: 'IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2025)',
+                description: 'Developed novel computer vision techniques to automatically classify infant sleep-wake states from overnight crib videos, contributing to pediatric sleep research and monitoring systems.'
+            },
+            {
+                title: 'Infant Action Generative Modeling',
+                venue: 'IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2024)',
+                description: 'Presented generative modeling approaches for understanding and predicting infant actions, advancing the field of pediatric behavioral analysis through computer vision.'
+            },
+            {
+                title: 'CribNet: Enhancing Infant Safety in Cribs through Vision-based Hazard Detection',
+                venue: 'The 18th IEEE International Conference on Automatic Face and Gesture Recognition (FG 2024)',
+                description: 'Introduced CribNet, a computer vision system for real-time hazard detection in infant cribs, combining deep learning with safety monitoring applications.'
+            },
+            {
+                title: 'Audio–Video syncing with lip movements using Generative Deep Neural Networks',
+                venue: 'Springer Journal: Multimedia Tools & Applications (2023)',
+                description: 'Developed generative neural network architectures for synchronizing audio and video content based on lip movement analysis, advancing multimedia processing techniques.'
+            }
+        ];
+
+        // ========================================
+        // 🚀 ALL JAVASCRIPT FUNCTIONALITY
+        // ========================================
+
+        // Global variables
+        let currentTab = 'company';
 
         // Smooth scrolling
         function scrollToSection(sectionId) {
@@ -1417,7 +1085,7 @@
             navLinks.classList.toggle('active');
         }
 
-        // Project tab switching
+        // Switch project tabs
         function switchTab(tabName) {
             // Update tab buttons
             document.querySelectorAll('.project-tab').forEach(tab => {
@@ -1430,11 +1098,13 @@
                 category.classList.remove('active');
             });
             document.getElementById(tabName + '-projects').classList.add('active');
+
+            currentTab = tabName;
         }
 
-        // Project modal functions
+        // Open project modal
         function openProjectModal(projectId) {
-            const project = projectData[projectId];
+            const project = findProject(projectId);
             if (!project) return;
 
             document.getElementById('modal-title').textContent = project.title;
@@ -1443,7 +1113,7 @@
             modalBody.innerHTML = `
                 <div class="modal-section">
                     <h4>Project Overview</h4>
-                    <p>${project.overview}</p>
+                    <p>${project.description}</p>
                 </div>
 
                 <div class="modal-section">
@@ -1468,7 +1138,7 @@
                 <div class="modal-section">
                     <h4>Technology Stack</h4>
                     <div class="project-tech">
-                        ${project.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                        ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                     </div>
                 </div>
 
@@ -1485,15 +1155,122 @@
             document.body.style.overflow = 'hidden';
         }
 
+        // Close project modal
         function closeProjectModal() {
             document.getElementById('project-modal').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
 
+        // Close modal when clicking overlay
         function closeModalOnOverlay(event) {
             if (event.target === document.getElementById('project-modal')) {
                 closeProjectModal();
             }
+        }
+
+        // Find project by ID
+        function findProject(projectId) {
+            for (const category of Object.values(PROJECTS)) {
+                const project = category.find(p => p.id === projectId);
+                if (project) return project;
+            }
+            return null;
+        }
+
+        // Render projects
+        function renderProjects() {
+            const container = document.getElementById('projects-container');
+            
+            container.innerHTML = `
+                <div id="company-projects" class="project-category projects-grid active">
+                    ${renderProjectCards('company')}
+                </div>
+                <div id="personal-projects" class="project-category projects-grid">
+                    ${renderProjectCards('personal')}
+                </div>
+                <div id="research-projects" class="project-category projects-grid">
+                    ${renderProjectCards('research')}
+                </div>
+            `;
+        }
+
+        // Render project cards for a category
+        function renderProjectCards(category) {
+            return PROJECTS[category]
+                .map(project => `
+                    <div class="project-card" onclick="openProjectModal('${project.id}')">
+                        <div class="project-header">
+                            <h3 class="project-title">${project.title}</h3>
+                            <p class="project-company">${project.company}</p>
+                            <span class="project-status">${project.status}</span>
+                        </div>
+                        <div class="project-content">
+                            <p class="project-description">${project.description}</p>
+                            <div class="project-tech">
+                                ${project.technologies.map(tech => 
+                                    `<span class="tech-tag">${tech}</span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                        <div class="expand-indicator">Click to expand →</div>
+                    </div>
+                `).join('');
+        }
+
+        // Render publications
+        function renderPublications() {
+            const container = document.getElementById('publications-container');
+            container.innerHTML = PUBLICATIONS.map(pub => `
+                <div class="publication-item">
+                    <h3 class="publication-title">${pub.title}</h3>
+                    <p class="publication-venue">${pub.venue}</p>
+                    <p class="publication-description">${pub.description}</p>
+                </div>
+            `).join('');
+        }
+
+        // Render experience
+        function renderExperience() {
+            const container = document.getElementById('experience-container');
+            container.innerHTML = EXPERIENCE.map(exp => `
+                <div class="timeline-item">
+                    <h3>${exp.title}</h3>
+                    <p style="color: #00d4ff; margin-bottom: 1rem;">${exp.company} | ${exp.period}</p>
+                    <p>${exp.description}</p>
+                </div>
+            `).join('');
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (3 + Math.random() * 6) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Typing effect
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            setTimeout(type, 1000);
         }
 
         // Intersection Observer for animations
@@ -1510,73 +1287,47 @@
             });
         }, observerOptions);
 
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Generate floating particles
-        function createParticles() {
-            const particlesContainer = document.querySelector('.particles');
-            const particleCount = 50;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (3 + Math.random() * 6) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(10, 10, 10, 0.98)';
-            } else {
-                header.style.background = 'rgba(10, 10, 10, 0.95)';
-            }
-        });
-
-        // Initialize particles when page loads
+        // Initialize everything when DOM loads
         document.addEventListener('DOMContentLoaded', () => {
+            // Load all data
+            renderProjects();
+            renderPublications();
+            renderExperience();
+            
+            // Initialize animations
             createParticles();
             
             // Add visible class to hero section immediately
             document.getElementById('hero').classList.add('visible');
-        });
 
-        // Keyboard navigation for modal
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeProjectModal();
-            }
-        });
-
-        // Add typing effect to hero subtitle
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            
-            setTimeout(type, 1000);
-        }
-
-        // Initialize typing effect
-        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize typing effect
             const subtitle = document.querySelector('.hero .subtitle');
-            const originalText = subtitle.textContent;
-            typeWriter(subtitle, originalText, 80);
+            if (subtitle) {
+                const originalText = subtitle.textContent;
+                typeWriter(subtitle, originalText, 80);
+            }
+
+            // Observe all sections for scroll animations
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(10, 10, 10, 0.98)';
+                } else {
+                    header.style.background = 'rgba(10, 10, 10, 0.95)';
+                }
+            });
+
+            // Keyboard navigation for modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeProjectModal();
+                }
+            });
         });
     </script>
 </body>
